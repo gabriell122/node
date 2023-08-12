@@ -5,16 +5,9 @@ module.exports = {
     async listarEnderecos(request, response){
         try{
 
-            const enderecoId = 1; // Defina o ID do endereço que você deseja buscar
-
-            // Aqui você deve implementar a lógica para buscar as informações do endereço pelo ID
-            // Por exemplo, usando o Mongoose para consultar um banco de dados
-            const endereco = await Enderecos.findById(enderecoId);
-        
-            if (!endereco) {
-                return response.status(404).json({ mensagem: 'Endereço não encontrado' });
-            }
-            return response.status(200).json({listar: 'Enderecos',endereco });
+            const sql = 'SELECT end_id, usu_id, end_rua, end_numero, end_complemento, end_bairro, end_cidade, end_estado, end_cep, end_principal, end_apelido, end_entrega, end_status FROM Enderecos;';
+            const enderecos = await db.query(sql)
+            return response.status(200).json({listar: 'Enderecos',enderecos });
         } catch(error){
             return response.status(500).json({listar: 'Erro', message: error});
         }

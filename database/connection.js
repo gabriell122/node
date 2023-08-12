@@ -10,7 +10,7 @@ const bd_usuario = 'us_des_222_utaxi'; // usuário
 const bd_senha = 'ec0623'; // senha
 const bd_servidor = '10.67.22.216'; // servidor
 const bd_porta = '3306'; // porta
-const bd_banco = 'ewerton_node'; // nome do banco
+const bd_banco = 'bd_tcc_des_222_utaxi'; // nome do banco
 let connection;
 
     

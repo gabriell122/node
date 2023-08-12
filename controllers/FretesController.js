@@ -4,7 +4,9 @@ const db = require("../database/connection");
 module.exports = {
     async listarFretes(request, response){
         try{
-            return response.status(200).json({listar: 'Fretes'});
+            const sql = 'SELECT fre_id, ent_id, fre_data_finalizacao, fre_status, fre_observacoes FROM Fretes;';
+            const Fretes = await db.query(sql)
+            return response.status(200).json({listar: 'Fretes',Fretes });
         } catch(error){
             return response.status(500).json({listar: 'Erro', message: error});
         }
