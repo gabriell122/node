@@ -6,7 +6,7 @@ module.exports = {
         try{
             const sql = 'SELECT ped_id, usu_id, fre_id, end_origem_id, end_destino_id, ped_dt_retirada, ped_dt_entrega, ped_cli_confirmacao, ped_localizacao, ped_localizacao_datahora, ped_valor_transporte, ped_valor_pedido, ped_tipo_pedido, ped_observacoes, ped_forma_pagamento, ped_prazo_entrega, ped_status, ped_ent_avaliacao, ped_ent_comentario FROM Pedidos;';
             const Pedidos = await db.query(sql)
-            return response.status(200).json({listar: 'Pedidos',Pedidos});
+            return response.status(200).json(Pedidos[0]);
         } catch(error){
             return response.status(500).json({listar: 'Erro', message: error});
         }

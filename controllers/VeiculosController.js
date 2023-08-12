@@ -5,8 +5,8 @@ module.exports = {
     async listarVeiculos(request, response){
         try{
             const sql = 'SELECT vei_id, ent_id, vei_modelo, vei_marca, vei_placa, vei_ano, vei_cor, vei_tipo FROM Veiculos;';
-            const endereco = await db.query(sql)
-            return response.status(200).json({listar: 'Enderecos',endereco });
+            const Enderecos = await db.query(sql)
+            return response.status(200).json(Enderecos[0]);
         } catch(error){
             return response.status(500).json({listar: 'Erro', message: error});
         }

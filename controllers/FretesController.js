@@ -6,7 +6,7 @@ module.exports = {
         try{
             const sql = 'SELECT fre_id, ent_id, fre_data_finalizacao, fre_status, fre_observacoes FROM Fretes;';
             const Fretes = await db.query(sql)
-            return response.status(200).json({listar: 'Fretes',Fretes });
+            return response.status(200).json(Fretes[0]);
         } catch(error){
             return response.status(500).json({listar: 'Erro', message: error});
         }

@@ -5,8 +5,8 @@ module.exports = {
     async listarUsuarios(request, response){
         try{ 
             const sql = 'SELECT usu_id, usu_nome, usu_email, usu_cpf, usu_senha, usu_rg, usu_dt_nascimento, usu_telefone, usu_celular, usu_genero, usu_dt_cadastro, usu_tipo, usu_status FROM Usuarios;';
-            const usuarios = await db.query(sql)
-            return response.status(200).json({listar: 'usuarioss',usuarios });
+            const Usuarios = await db.query(sql)
+            return response.status(200).json(Usuarios[0]);
         } catch(error){
             return response.status(500).json({listar: 'Erro', message: error});
         }
