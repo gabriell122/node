@@ -20,6 +20,7 @@ router.patch('/Enderecos',EnderecosController.alterarEnderecos);
 router.delete('/Enderecos',EnderecosController.deletarEnderecos);
 
 router.get('/Veiculos',VeiculosController.listarVeiculos);
+router.get('/Veiculos/:id',VeiculosController.listarVeiculosId);
 router.post('/Veiculos',VeiculosController.inserirVeiculos);
 router.patch('/Veiculos',VeiculosController.alterarVeiculos);
 router.delete('/Veiculos',VeiculosController.deletarVeiculos);
