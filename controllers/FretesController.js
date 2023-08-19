@@ -11,6 +11,17 @@ module.exports = {
             return response.status(500).json({listar: 'Erro', message: error});
         }
     },
+    async listarFretesId (request, response){
+        
+        try{
+            
+            const sql = ' SELECT fre_id, ent_id, fre_data_finalizacao, fre_status, fre_observacoes FROM Fretes WHERE fre_id = ? ;';
+            const Fretes = await db.query(sql,[request.params.id])
+            return response.status(200).json(Fretes[0]);
+        } catch(error){
+            return response.status(500).json({listar: 'Erro', message: error});
+        }
+    },
     async inserirFretes(request, response){
         try{
             return response.status(200).json({inserir: 'Fretes'});

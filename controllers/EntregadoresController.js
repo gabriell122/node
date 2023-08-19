@@ -11,6 +11,17 @@ module.exports = {
             return response.status(500).json({listar: 'Erro', message: error});
         }
     },
+    async listarEntregadoresId (request, response){
+        
+        try{
+            
+            const sql = 'SELECT ent_id, usu_id, ent_cnh_frente, ent_cnh_verso, ent_avaliacao, ent_comentario, ent_nacionalidade, ent_naturalidade, ent_nome_mae, ent_nome_pai FROM Entregadores WHERE ent_id = ? ;';
+            const Entregadores = await db.query(sql,[request.params.id])
+            return response.status(200).json(Entregadores[0]);
+        } catch(error){
+            return response.status(500).json({listar: 'Erro', message: error});
+        }
+    },
     async inserirEntregadores(request, response){
         try{
             return response.status(200).json({inserir: 'Entregadores'});

@@ -12,6 +12,17 @@ module.exports = {
             return response.status(500).json({listar: 'Erro', message: error});
         }
     },
+    async listarEnderecosId (request, response){
+        
+        try{
+            
+            const sql = 'SELECT end_id, usu_id, end_rua, end_numero, end_complemento, end_bairro, end_cidade, end_estado, end_cep, end_principal, end_apelido, end_entrega, end_status FROM Enderecos WHERE end_id = ? ;';
+            const Enderecos = await db.query(sql,[request.params.id])
+            return response.status(200).json(Enderecos[0]);
+        } catch(error){
+            return response.status(500).json({listar: 'Erro', message: error});
+        }
+    },
     async inserirEnderecos(request, response){
         try{
             return response.status(200).json({inserir: 'Enderecos'});
