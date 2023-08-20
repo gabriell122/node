@@ -26,9 +26,9 @@ module.exports = {
         try{
             const {ent_id, vei_modelo, vei_marca, vei_placa, vei_ano, vei_cor, vei_tipo} = request.body;
             
-            const sql = 'INSERT INTO Veiculos (ent_id, vei_modelo, vei_marca, vei_placa, vei_ano, vei_cor, vei_tipo) VALUES (?, ?,?, ?,?, ?,?,  )';
+            const sql = 'INSERT INTO Veiculos (ent_id, vei_modelo, vei_marca, vei_placa, vei_ano, vei_cor, vei_tipo) VALUES (?, ?,?, ?,?, ?,?)';
             await db.query(sql, [ent_id, vei_modelo, vei_marca, vei_placa, vei_ano, vei_cor, vei_tipo]);
-            return response.status(200).json({inserir: 'Veiculos'});
+            return response.status(201).json({inserir: 'Veiculos'});
         } catch(error){
             return response.status(500).json({inserir: 'Erro', message: error});
         }
